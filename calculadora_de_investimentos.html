@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de investimentos</title>
+
+    <style>
+        body {
+            background-color: rgb(0, 69, 139);
+            color: white;
+            font: normal 15pt Arial;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Se eu investir...</h1>
+
+    <h3>
+        <fieldset>
+
+            <p>Inicial <input type="number" placeholder="R$" name="inicial" id="inicial">*</p>
+            <p>Rent. Anual <input type="number" placeholder="Recomendamos 6%" name="rent_anual" id="rent_anual">*</p>
+            <p>Tempo <input type="number" placeholder="Meses" name="tempo" id="tempo">*</p>
+            <p>Resultado <input type="number" id="resultado" name="resultado" placeholder="R$"></p>
+
+        </fieldset>
+
+        <p><input type="button" value="Verificar" onclick="calcular()"></p>
+        
+    </h3>
+
+        <script>
+            function calcular() {
+                var inicial = window.document.getElementById('inicial')
+                var juros_anual = window.document.getElementById('rent_anual')
+                var tempo = window.document.getElementById('tempo')
+                var inic = Number(inicial.value)
+                var juros_1 = Number(juros_anual.value)
+                var jurosM = juros_1/12
+                var temp = Number(tempo.value)
+                var resul = inic * (1 + (jurosM / 100)) ** temp
+                
+                 window.document.getElementById('resultado').value = resul.toFixed(2)
+
+                 if (inicial.value.length == 0 || rent_anual.value.length == 0 || tempo.value.length == 0 )
+                 window.alert('Insira um valor!')
+            }
+        </script>
+        
+    
+</body>
+</html>
